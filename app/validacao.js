@@ -1,6 +1,16 @@
 function verificaChute(chute) {
     const numero = +chute;
 
+    if(chute.toUpperCase() === "GAME OVER.") {
+        document.body.innerHTML =
+                `
+                <h2>Game Over!!!</h2>
+                <h3>Pressione o botão para jogar novamente</h3>
+                <button id="jogar-novamente" class="btn-jogar" >Jogar novamente</button>
+                `
+                document.body.style.backgroundColor = "black";
+    }
+
     if(chuteForInvalido(numero)) {
         elementoChute.innerHTML += '<div>Valor Inválido</div>';
         return;
@@ -16,7 +26,7 @@ function verificaChute(chute) {
             <h2>Você acertou!</h2>
             <h3>O número secreto era ${numeroSecreto}</h3>
 
-            <button id-"jogar-novamente" class="btn-jogar">Jogar Novamente</button>
+            <button id="jogar-novamente" class="btn-jogar">Jogar Novamente</button>
         `
     } else if (numero > numeroSecreto) {
         elementoChute.innerHTML += `
@@ -36,3 +46,10 @@ function chuteForInvalido(numero) {
 function estouraRange(numero) {
     return numero > maiorValor || numero < menorValor;
 }
+
+
+document.body.addEventListener('click', e => {
+    if(e.target.id == 'jogar-novamente'){
+        window.location.reload();
+    }
+})
