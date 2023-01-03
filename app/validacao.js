@@ -1,7 +1,7 @@
 function verificaChute(chute) {
     const numero = +chute;
 
-    if(chute.toUpperCase() === "GAME OVER.") {
+    if(chute.toUpperCase() === "GAME OVER." || chute.toUpperCase() === "GAME OVER") {
         document.body.innerHTML =
                 `
                 <h2>Game Over!!!</h2>
